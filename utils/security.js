@@ -44,9 +44,16 @@ const AES = (secret, data) => {
   return ciphertext.toString();
 };
 
-const AESDecrypted = (encrypted, secret) => {
-  const ciphertext = CryptoJS.AES.decrypt(encrypted, secret);
-  return ciphertext.toString();
+// const AESDecrypted = (encrypted, secret) => {
+//   const ciphertext = CryptoJS.AES.decrypt(encrypted, secret);
+//   return ciphertext.toString();
+// };
+
+const AESDecrypted = () => {
+  const encrypted = CryptoJS.AES.encrypt(myString, myPassword);
+  const decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+
+  return decrypted.toString(CryptoJS.enc.Utf8);
 };
 
 module.exports = {
