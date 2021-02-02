@@ -49,9 +49,9 @@ const AES = (secret, data) => {
 //   return ciphertext.toString();
 // };
 
-const AESDecrypted = () => {
-  const encrypted = CryptoJS.AES.encrypt(myString, myPassword);
-  const decrypted = CryptoJS.AES.decrypt(encrypted, myPassword);
+const AESDecrypted = (secret, data) => {
+  const encrypted = CryptoJS.AES.encrypt(data, secret);
+  const decrypted = CryptoJS.AES.decrypt(encrypted, secret);
 
   return decrypted.toString(CryptoJS.enc.Utf8);
 };
