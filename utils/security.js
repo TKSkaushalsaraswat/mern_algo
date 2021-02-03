@@ -39,18 +39,12 @@ const hmacSHA256 = (secret, data) => {
   return CryptoJS.HmacSHA256(data, secret);
 };
 
-const AES = (secret, data) => {
+const AES = (data, secret) => {
   const ciphertext = CryptoJS.AES.encrypt(data, secret);
   return ciphertext.toString();
 };
 
-// const AESDecrypted = (encrypted, secret) => {
-//   const ciphertext = CryptoJS.AES.decrypt(encrypted, secret);
-//   return ciphertext.toString();
-// };
-
-const AESDecrypted = (secret, data) => {
-  const encrypted = CryptoJS.AES.encrypt(data, secret);
+const AESDecrypted = (encrypted, secret) => {
   const decrypted = CryptoJS.AES.decrypt(encrypted, secret);
 
   return decrypted.toString(CryptoJS.enc.Utf8);

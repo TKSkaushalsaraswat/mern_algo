@@ -40,7 +40,10 @@ router.post(
     console.log("hmacSHA256: " + hmacSHA256("secret", password));
     console.log("sha1: " + sha1(password));
     console.log("md5: " + md5(password));
-    console.log("AES: " + AES("secret" + password));
+
+    const encrypt = AES(password, "secret");
+
+    console.log("encrypt: " + encrypt);
 
     try {
       let user = await User.findOne({ email });
